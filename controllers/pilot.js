@@ -5,7 +5,7 @@ const { findById } = require("../models/pilot.js");
 //INDEX - GETS ALL pilot posts
 const index = async (req,res) => { 
    try{
-    const allPilots = await Pilot.find({});
+    const allPilots = await Pilot.find({}).populate("comments");
     res.status(200).json(allPilots)
    }catch(error){
         res.status(400).send(error)
